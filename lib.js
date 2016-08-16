@@ -1,14 +1,13 @@
 
-
-function customer(orders, state) {
+function customer (orders, state) {
   return { orders, state }
 }
 
-function order(items, timeStamp) {
+function order (items, timeStamp) {
   return { items, timeStamp }
 }
 
-function item(name, price) {
+function item (name, price) {
   return { name, price }
 }
 
@@ -19,17 +18,25 @@ function item(name, price) {
  * @param endTime a Number representing an ending time.
  * @param customers an array of Customer objects.
  * @returns An Object of item names mapped to the total sales of that item
- *  in the given State and between the given startTime and endTime.   
+ *  in the given State and between the given startTime and endTime.
  */
-function grossPerItemInState(state, startTime, endTime, customers) {
-  //TODO: Make this actually calculate values.
-  return {
-    wizz: 600
-    bang: 300
-  }
+
+ //  Customer contains an array of orders and their state
+ //  The orders array contains an array of items purchased and time of purchase
+function grossPerItemInState (state, startTime, endTime, customers) {
+  const result = {}
+    customers
+      .filter(c => c.state === state)
+      .reduce((order, customer) => [...customer.orders, ...order ], [])
+      .filter(order => order.timeStamp >= startTime && order.timeStamp <= endTime)
+      .reduce((item, order) => [...order.items, ...item], [])
+      .forEach(item => {
+        if (result[item.name] === undefined) { result[item.name] = 0 }
+        result[item.name] += item.price
+      })
+
+  return result
 }
-
-
 
 module.exports = {
   customer,

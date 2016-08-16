@@ -3,14 +3,12 @@ const {
   order,
   item,
   grossPerItemInState
-} = require("./lib")
+} = require('./lib')
 
-
-
-const gadget = item("gadget", 5)
-const doodad = item("doodad", 10)
-const thingamagij = item("thingamagij", 100)
-const whatchacallit = item("whatchacallit", 500)
+const gadget = item('gadget', 5)
+const doodad = item('doodad', 10)
+const thingamagij = item('thingamagij', 100)
+const whatchacallit = item('whatchacallit', 500)
 
 const timeOut = 200
 const timeIn = 500
@@ -19,8 +17,8 @@ const timeAfter = 800
 const startTime = 300
 const endTime = 600
 
-const stateIn = "TN"
-const stateOut = "AZ"
+const stateIn = 'TN'
+const stateOut = 'AZ'
 
 const customers = [
   customer(
@@ -67,7 +65,6 @@ const customers = [
     ], stateIn
   )
 ]
-
 
 const result = grossPerItemInState(stateIn, startTime, endTime, customers)
 
