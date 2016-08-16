@@ -14,6 +14,7 @@ const whatchacallit = item("whatchacallit", 500)
 
 const timeOut = 200
 const timeIn = 500
+const timeAfter = 800
 
 const startTime = 300
 const endTime = 600
@@ -34,14 +35,14 @@ const customers = [
     [
       order([thingamagij, thingamagij], timeIn),
       order([doodad, doodad, doodad, doodad], timeIn),
-      order([whatchacallit], timeOut)
+      order([whatchacallit], timeAfter)
     ], stateOut
   ),
   customer(
     [
       order([doodad, thingamagij, doodad, doodad], timeIn),
       order([doodad, thingamagij], timeIn),
-      order([whatchacallit, doodad], timeOut)
+      order([whatchacallit, doodad], timeAfter)
     ], stateIn
   ),
   customer(
@@ -55,7 +56,7 @@ const customers = [
     [
       order([gadget, gadget, gadget], timeOut),
       order([doodad, gadget, gadget, gadget], timeIn),
-      order([gadget, doodad], timeOut)
+      order([gadget, doodad], timeAfter)
     ], stateOut
   ),
   customer(
